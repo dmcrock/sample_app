@@ -28,9 +28,7 @@ gem 'will_paginate', '~> 3.0.pre2'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-group :production, :staging do
-gem "pg"
-end
+
 
 group :development do
   gem 'rspec-rails', '2.3.0'
