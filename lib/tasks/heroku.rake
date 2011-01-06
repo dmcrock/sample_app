@@ -1,7 +1,15 @@
-<html>
-<head><title>301 Moved Permanently</title></head>
-<body bgcolor="white">
-<center><h1>301 Moved Permanently</h1></center>
-<hr><center>nginx/0.7.67</center>
-</body>
-</html>
+namespace :heroku do
+  desc "Generate the Heroku gems manifest from gem dependencies"
+  task :gems do
+    RAILS_ENV='production'
+    Rake::Task[:environment].invoke
+    list = Rails.configuration.gems.collect do |g| 
+      command, *options = g.send(:install_command)
+      options.join(" ") + "\n"
+    end
+    
+    File.open(File.join(RAILS_ROOT, '.gems'), 'w') do |f|
+      f.write(list)
+    end
+  end
+end
