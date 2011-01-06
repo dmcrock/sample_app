@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
-
+gem 'postgres-pr'
 gem 'sinatra', '1.0'
 
 # Bundle edge Rails instead:
